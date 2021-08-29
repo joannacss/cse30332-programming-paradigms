@@ -1,5 +1,3 @@
-function computeCantorsEnumeration(testCases){
-    /* Your solution goes here */
-}
-
-module.exports = { computeCantorsEnumeration };
+var findMaxConsecutiveOnes = function(nums) {
+    /* your solution goes here */
+};
