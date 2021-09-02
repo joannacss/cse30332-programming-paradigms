@@ -88,6 +88,7 @@ snow.sleep(2)
 snow.play(3)
 console.log(kiko);
 console.log(snow);
+console.log(kiko.eat === snow.eat);
 
 // Example 3:
 // Functional instantiation with shared methods
@@ -145,7 +146,6 @@ child.age = 7
 console.log(child.name) // Ryan
 console.log(child.age) // 7
 console.log(child.heritage) // Irish
-
 console.log(child.address)
 
 // Example 5:
