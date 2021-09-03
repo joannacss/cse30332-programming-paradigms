@@ -1,5 +1,3 @@
-// Version 1: Declarative
-
 function isAllElementsBelowThresholdDecl(values, threshold){
     const isBelowThreshold = (currentValue) => currentValue < threshold;
     return values.every(isBelowThreshold);
