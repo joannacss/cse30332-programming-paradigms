@@ -1,5 +1,5 @@
-function computeCantorsEnumeration(testCases){
-    /* Your solution goes here */
-}
+function listAllMoves(amount, bottles) {
+    /* your solution goes here */
+};
 
-module.exports = { computeCantorsEnumeration };
+
