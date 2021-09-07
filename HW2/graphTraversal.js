@@ -32,14 +32,11 @@ function breadthFirstSearch(graph) {
 
     while (queue.length > 0) {
         let currentState = queue.shift();
-        console.log(currentState);
         if (!visited.has(currentState.toString())) {
             if (isGoal(currentState)) {
                 return currentState;
             }
             var nextStates = graph[currentState.toString()]
-            console.log(nextStates)
-
             nextStates.forEach(x => queue.push(x));
         }
     }
@@ -85,5 +82,12 @@ let bottlesGraph = {
     '3,3':[[3,0],[0,3],[5,1]]
 };
 
-var currentPath = breadthFirstSearch2(bottlesGraph);
-console.log(currentPath)
+// Compare the outputs below: 
+//  - one only returns the target goal state
+//  - the other returns all the steps taken to reach the goal state
+
+var solution = breadthFirstSearch2(bottlesGraph);
+console.log("Solution ", solution);
+
+var targetGoal = breadthFirstSearch(bottlesGraph);
+console.log("Target goal ", targetGoal);
