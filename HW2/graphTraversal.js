@@ -12,13 +12,12 @@
 // 11                  label w as explored
 // 12                  Q.enqueue(w)
 
-/* 
-    keys = states; values = list of next states 
-    this is for illustration purposes, and the graph is not 100% complete 
-    (i.e., it does not have all possible states)
-*/
 
 
+/**
+ * Placeholder function that verifies whether it is the target goal.
+ * For this example, I am considering the target amount = 2
+ */
 function isGoal(state) {
     return  (state[0] === 2 && state[1] === 0) ||
             (state[1] === 2 && state[0] === 0);
@@ -36,7 +35,6 @@ function breadthFirstSearch(graph) {
         console.log(currentState);
         if(!visited.has(currentState.toString())){
             if(isGoal(currentState)){
-                console.log(currentState)
                 return currentState;
             }
             var nextStates = graph[currentState.toString()]
@@ -63,8 +61,7 @@ function breadthFirstSearch2(graph) {
 
         if(!visited.has(currentState.toString())){
             if(isGoal(currentState)){
-                console.log(currentPath)
-                return currentState;
+                return currentPath;
             }
             var nextStates = graph[currentState.toString()]
             nextStates.forEach(x => queue.push([currentPath,x]));
@@ -73,7 +70,11 @@ function breadthFirstSearch2(graph) {
     return -1;
 }
 
-
+/* 
+    keys = states; values = list of next states 
+    this is for illustration purposes, and the graph is not 100% complete 
+    (i.e., it does not have all possible states)
+*/
 let bottlesGraph = {
     '0,0':[[5,0],[0,3]],
     '5,0':[[0,0],[0,3],[2,3]],
@@ -84,4 +85,5 @@ let bottlesGraph = {
     '3,3':[[3,0],[0,3],[5,1]]
 };
 
-breadthFirstSearch2(bottlesGraph);
+var currentPath = breadthFirstSearch2(bottlesGraph);
+console.log(currentPath)
