@@ -19,22 +19,22 @@
  * For this example, I am considering the target amount = 2
  */
 function isGoal(state) {
-    return  (state[0] === 2 && state[1] === 0) ||
-            (state[1] === 2 && state[0] === 0);
+    return (state[0] === 2 && state[1] === 0) ||
+        (state[1] === 2 && state[0] === 0);
 }
 /**
  * Search WITHOUT tracking the path
  */
 function breadthFirstSearch(graph) {
-    let rootState = [0,0]
+    let rootState = [0, 0]
     let queue = [rootState]
     let visited = new Set()
-    
-    while(queue.length > 0){
+
+    while (queue.length > 0) {
         let currentState = queue.shift();
         console.log(currentState);
-        if(!visited.has(currentState.toString())){
-            if(isGoal(currentState)){
+        if (!visited.has(currentState.toString())) {
+            if (isGoal(currentState)) {
                 return currentState;
             }
             var nextStates = graph[currentState.toString()]
@@ -50,21 +50,21 @@ function breadthFirstSearch(graph) {
  * Search which tracks the path
  */
 function breadthFirstSearch2(graph) {
-    let rootState = [0,0]
-    let queue = [ [[],rootState] ]
+    let rootState = [0, 0]
+    let queue = [ [[], rootState] ]
     let visited = new Set()
-    
-    while(queue.length > 0){
+
+    while (queue.length > 0) {
         let currentArray = queue.shift();
         let currentState = currentArray[1]
         let currentPath = currentArray[0].concat([currentState])
 
-        if(!visited.has(currentState.toString())){
-            if(isGoal(currentState)){
+        if (!visited.has(currentState.toString())) {
+            if (isGoal(currentState)) {
                 return currentPath;
             }
             var nextStates = graph[currentState.toString()]
-            nextStates.forEach(x => queue.push([currentPath,x]));
+            nextStates.forEach(x => queue.push([currentPath, x]));
         }
     }
     return -1;
