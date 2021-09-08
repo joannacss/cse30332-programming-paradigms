@@ -2,17 +2,17 @@
 
 // Example: Imperative
 function isAllElementsBelowThreshold(values, threshold){
-    const isBelowThreshold = (currentValue) => currentValue < threshold;
-    return values.every(isBelowThreshold);
-}
-
-// Example: Converted to Declarative
-function isAllElementsBelowThreshold(values, threshold){
     for(let i = 0; i < values.length ; i++){
         if(values[i] >= threshold)
             return false;
     }
     return true;
+}
+
+// Example: Converted to Functional (declarative-style)
+function isAllElementsBelowThreshold(values, threshold){
+    const isBelowThreshold = (currentValue) => currentValue < threshold;
+    return values.every(isBelowThreshold);
 }
 
 console.log(isAllElementsBelowThresholdDecl([1, 30, 39, 29, 10, 13], 40));
