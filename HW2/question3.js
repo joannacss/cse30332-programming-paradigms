@@ -1,5 +1,1 @@
-function listAllMoves(amount, bottles) {
-    /* your solution goes here */
-};
-
-
+// Solution will eventually be posted here after deadline
