@@ -1,0 +1,74 @@
+Searching the Solution for the Bottles Problem: 
+    # of Bottles: 4 ( 3 4 2 1 )
+    Target Amount: 25
+SOLUTION NOT FOUND! (-1)
+Run in: 0.003955 secs
+
+Searching the Solution for the Bottles Problem: 
+    # of Bottles: 4 ( 5 18 2 1 )
+    Target Amount: 25
+SOLUTION NOT FOUND! (-1)
+Run in: 0.029838 secs
+
+Searching the Solution for the Bottles Problem: 
+    # of Bottles: 4 ( 5 28 2 1 )
+    Target Amount: 25
+SOLUTION:
+    Step #0) [0,0,0,0]
+    Step #1) [0,28,0,0]
+    Step #2) [0,26,2,0]
+    Step #3) [0,25,2,1]
+    Step #4) [0,25,0,1]
+    Step #5) [0,25,0,0]
+Run in: 0.005619 secs
+
+Searching the Solution for the Bottles Problem: 
+    # of Bottles: 4 ( 301 28 2 1 )
+    Target Amount: 250
+SOLUTION:
+    Step #0) [0,0,0,0]
+    Step #1) [301,0,0,0]
+    Step #2) [273,28,0,0]
+    Step #3) [273,26,2,0]
+    Step #4) [273,0,2,0]
+    Step #5) [273,2,0,0]
+    Step #6) [247,28,0,0]
+    Step #7) [247,27,0,1]
+    Step #8) [247,0,0,1]
+    Step #9) [248,0,0,0]
+    Step #10) [248,0,2,0]
+    Step #11) [250,0,0,0]
+Run in: 0.105016 secs
+
+Searching the Solution for the Bottles Problem: 
+    # of Bottles: 4 ( 0 0 0 3 )
+    Target Amount: 3
+SOLUTION:
+    Step #0) [0,0,0,0]
+    Step #1) [0,0,0,3]
+Run in: 0.000193 secs
+
+Searching the Solution for the Bottles Problem: 
+    # of Bottles: 5 ( 1 7 17 19 3 )
+    Target Amount: 9
+SOLUTION:
+    Step #0) [0,0,0,0,0]
+    Step #1) [0,7,0,0,0]
+    Step #2) [0,0,7,0,0]
+    Step #3) [0,0,7,19,0]
+    Step #4) [0,0,17,9,0]
+    Step #5) [0,0,0,9,0]
+Run in: 0.012689 secs
+
+Searching the Solution for the Bottles Problem: 
+    # of Bottles: 6 ( 1 7 17 19 3 25 )
+    Target Amount: 9
+SOLUTION:
+    Step #0) [0,0,0,0,0,0]
+    Step #1) [1,0,0,0,0,0]
+    Step #2) [0,0,1,0,0,0]
+    Step #3) [0,0,1,0,0,25]
+    Step #4) [0,0,17,0,0,9]
+    Step #5) [0,0,0,0,0,9]
+Run in: 0.031817 secs
+
