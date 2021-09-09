@@ -26,12 +26,12 @@ function isGoal(state) {
  * Search WITHOUT tracking the path
  */
 function breadthFirstSearch(graph) {
-    let rootState = [0, 0]
-    let queue = [rootState]
-    let visited = new Set()
+    let rootState = [0, 0];     // initial state
+    let queue = [rootState];    // queue has only the initial state
+    let visited = new Set();    // tracks visited states
 
     while (queue.length > 0) {
-        let currentState = queue.shift();
+        let currentState = queue.shift(); 
         // state has not been visited yet
         if (!visited.has(currentState.toString())) {
             visited.add(currentState.toString()); // mark state as visited
@@ -49,9 +49,9 @@ function breadthFirstSearch(graph) {
  * Search which tracks the path
  */
 function breadthFirstSearch2(graph) {
-    let rootState = [0, 0]
-    let queue = [ [[], rootState] ]
-    let visited = new Set()
+    let rootState = [0, 0] // initial state
+    let queue = [ [[], rootState] ] // queue has both the initial state and an empty path history
+    let visited = new Set() // tracks visited nodes
 
     while (queue.length > 0) {
         let currentArray = queue.shift();
@@ -59,6 +59,7 @@ function breadthFirstSearch2(graph) {
         let currentPath = currentArray[0].concat([currentState])
 
         if (!visited.has(currentState.toString())) {
+            visited.add(currentState.toString()); // mark state as visited
             if (isGoal(currentState)) {
                 return currentPath;
             }
