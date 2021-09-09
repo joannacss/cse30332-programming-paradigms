@@ -32,7 +32,9 @@ function breadthFirstSearch(graph) {
 
     while (queue.length > 0) {
         let currentState = queue.shift();
+        // state has not been visited yet
         if (!visited.has(currentState.toString())) {
+            visited.add(currentState.toString()); // mark state as visited
             if (isGoal(currentState)) {
                 return currentState;
             }
