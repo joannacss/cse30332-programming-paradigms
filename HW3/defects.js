@@ -1,6 +1,3 @@
-fs = require('fs');
-
-
 function loadObjects(){
 
     /* ... Your solution here ... */
@@ -12,9 +9,14 @@ function loadObjects(){
 }
 
 
-function main(){
-    query1();
-    query2();
-    //
-
+function query1(defects){
+    console.log(/*...*/);    
 }
+function query2(defects){
+    console.log(/*...*/);    
+}
+/* ... all the other queries */
+
+let defects = loadObjects();
+query1(defects);
+query2(defects);
