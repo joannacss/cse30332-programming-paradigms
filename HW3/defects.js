@@ -20,3 +20,4 @@ function query2(defects){
 let defects = loadObjects();
 query1(defects);
 query2(defects);
+/* ... invocation to all the other query functions ...*/

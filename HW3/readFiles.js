@@ -3,34 +3,28 @@ const fs = require('fs');               // module for file I/O
 const readline = require("readline");   // module for reading line-by-line from file
 
 // create input streams
-let defectsCSV = fs.createReadStream("defects.csv");        
-let dependsCSV = fs.createReadStream("defect_depends.csv");
-let blocksCSV = fs.createReadStream("defect_blocks.csv");
-let developersCSV = fs.createReadStream("developers.csv");
+let defectsCSV = fs.readFileSync("defects.csv","utf8");        
+let dependsCSV = fs.readFileSync("defect_depends.csv","utf8");
+let blocksCSV = fs.readFileSync("defect_blocks.csv","utf8");
+let developersCSV = fs.readFileSync("developers.csv","utf8");
 
-// set up the readline module to read from the file streams
-let defectsReader = readline.createInterface({ input: defectsCSV });
-let dependsReader = readline.createInterface({ input: dependsCSV });
-let blocksReader = readline.createInterface({ input: blocksCSV });
-let developersReader = readline.createInterface({ input: developersCSV });
-
-// the code below reads from each file stream, line-by-line
-developersReader.on("line", (row) => { 
-    let columns = row.split(",");
-    console.log(columns);
-}); 
-
-blocksReader.on("line", (row) => { 
-    let columns = row.split(",");
-    console.log(columns);
-}); 
-
-dependsCSV.on("line", (row) => { 
+// Reads defects CSV line-by-line
+defectsCSV.split("\r\n").forEach(row =>{
     let columns = row.split(",");
     console.log(columns);
 });
 
-defectsReader.on("line", (row) => { 
+dependsCSV.split("\r\n").forEach(row =>{
+    let columns = row.split(",");
+    console.log(columns);
+});
+
+blocksCSV.split("\r\n").forEach(row =>{
+    let columns = row.split(",");
+    console.log(columns);
+});
+
+developersCSV.split("\r\n").forEach(row =>{
     let columns = row.split(",");
     console.log(columns);
 });
