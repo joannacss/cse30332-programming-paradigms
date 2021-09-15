@@ -1,0 +1,1 @@
+The minimum time-to-fix defects is 0 days and the maximum time to fix defects is 4012 days across all components.
