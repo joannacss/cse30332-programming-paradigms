@@ -1,7 +1,11 @@
-function fibLoop2(n) {
-  var fib = [0, 1];
-  for (var i = 2; i <= n; i++) {
-    fib[i] = fib[i-1] + fib[i-2];
-  }
-  return fib[n];
-}
+var assert = require('assert');
+var brokenFib = require('./brokenFibonacci')
+describe('fibonacci(n)', function() {
+  it('should return 0 when the value is 0', function() {
+    console.log(brokenFib.fibonacci(0));
+    assert.equal(brokenFib.fibonacci(0), 0);
+  });
+  it('should return 1 when the value is 1', function() {
+    assert.equal(brokenFib.fibonacci(1), 1);
+  });
+});  
