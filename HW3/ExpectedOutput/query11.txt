@@ -1,1 +1,1 @@
-Common utilities (libwsutil), Qt UI, and Build process are the top 3 components that are taking on average the longer to be fixed
+Common utilities (libwsutil), Qt UI, and Build process are the top 3 components that are taking on average the longer to be fixed.

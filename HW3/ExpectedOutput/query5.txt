@@ -1,9 +1,9 @@
-The average time-to-fix defects is 134 days for component GTK+ UI.
-The average time-to-fix defects is 75 days for component TShark.
-The average time-to-fix defects is 94 days for component Documentation.
-The average time-to-fix defects is 147 days for component Qt UI.
-The average time-to-fix defects is 88 days for component Capture file support (libwiretap).
-The average time-to-fix defects is 132 days for component Extras.
-The average time-to-fix defects is 80 days for component Dissection engine (libwireshark).
-The average time-to-fix defects is 146 days for component Build process.
-The average time-to-fix defects is 166 days for component Common utilities (libwsutil).
+The average time-to-fix defects is 134 days for GTK+ UI component.
+The average time-to-fix defects is 75 days for TShark component.
+The average time-to-fix defects is 94 days for Documentation component.
+The average time-to-fix defects is 147 days for Qt UI component.
+The average time-to-fix defects is 88 days for Capture file support (libwiretap) component.
+The average time-to-fix defects is 132 days for Extras component.
+The average time-to-fix defects is 80 days for Dissection engine (libwireshark) component.
+The average time-to-fix defects is 146 days for Build process component.
+The average time-to-fix defects is 166 days for Common utilities (libwsutil) component.
