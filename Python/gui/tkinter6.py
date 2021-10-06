@@ -2,12 +2,14 @@ from tkinter import *
 
 master = Tk()
 
-w = Canvas(master, width=200, height=100)
+w = Canvas(master, width=400, height=200)
 w.pack()
 
-w.create_line(0, 0, 200, 100)
+# x0, y0, x1, y1
+w.create_line(0, 0, 400, 200) 
+# x0, y0, x1, y1
 w.create_line(0, 100, 200, 0, fill="red", dash=(4, 4))
-
+# x0, y0, x1, y1
 w.create_rectangle(50, 25, 100, 75, fill="blue")
 
 mainloop()
