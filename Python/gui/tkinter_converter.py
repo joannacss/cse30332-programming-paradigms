@@ -1,5 +1,5 @@
 from tkinter import *
-
+# Example extracted and modified from: https://tkdocs.com/tutorial/firstexample.html
 def calculate(*args):
     try:
         value = float(feet.get())
