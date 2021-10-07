@@ -1,3 +1,4 @@
+# WRONG example of iterator implementation
 class vowels:
     def __init__(self, word):
         self.i = 0
@@ -24,6 +25,3 @@ class vowels:
 for v in vowels('Joanna'):
     print(v)
 
-# iterator = vowels('Joanna Cecilia da Silva Santos')
-# print(iterator.__next__())
-# print(iterator.__next__())
