@@ -48,7 +48,7 @@ class TicTacToe:
         self.b9.grid(row=4,column=2)
     
        
-    def check_winner():
+    def check_winner(self):
         pass #TODO
     
     #Changes the value of the button
