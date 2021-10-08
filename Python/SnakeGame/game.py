@@ -2,30 +2,33 @@ import tkinter as tk
 from AnimalBehavior import *
 
 class Grid:
-    def __init__(self, root):
+    def __init__(self, master):
         #Initialize grid
-        self.root = root # top-level
-        self.keypressed = None
+        self.master = master
+        self.keypressed=None
         self.animalType = None
-        self.root.title("Snake Game")
-        self.height = 36  # height of the grid
-        self.width = 24   # width of the grid
-        self.rectangle_size = 15 
+        self.master.title("Lines")
+        self.height = 36 
+        self.width = 24 
+        self.rectangle_size = 15
         self.canvas = tk.Canvas(width=self.width*self.rectangle_size, 
-            height=(self.height*self.rectangle_size)+self.height/2)
+            height=(self.height*self.rectangle_size))
         self.drawGrid()
         
         # Initialize buttons in a special button frame at bottom of screen
-        self.button_frame = tk.Frame(self.root)
+        self.button_frame = tk.Frame(self.master)
         self.button_frame.pack(side="bottom", fill="x", expand=False)
         self.canvas.pack(side="top", fill="both", expand=True)
         
         ######################################################################
-        ## TO DO: Create buttons for caterpillar and worm here.  
-		## Add them to the grid.
+        ## TO DO: Create handler buttons for caterpillar and worm here.
         ######################################################################
         self.button1 = tk.Button(self.button_frame, text="Snake", command=self.createSnake)
+        self.button2 = tk.Button(self.button_frame, text="Caterpillar")
+        self.button3 = tk.Button(self.button_frame, text="Worm")
         self.button1.grid(row=0, column=1, sticky="ew")
+        self.button2.grid(row=0, column=2, sticky="ew")
+        self.button3.grid(row=0, column=3, sticky="ew")
 
         self.canvas.pack()    
 
@@ -36,8 +39,8 @@ class Grid:
         # bind arrow keys to handlers
         # TO DO: Add Left and Right keypress handlers
         ######################################################################
-        root.bind("<Down>", self.handle_down_key)
-        root.bind("<Up>", self.handle_up_key)
+        master.bind("<Down>", self.handle_down_key)
+        master.bind("<Up>", self.handle_up_key)
      
         
         # ####################################################################
@@ -59,7 +62,7 @@ class Grid:
         # After 1 second, call scanning again (create a recursive loop)
         # This construct is very important because it allows the system to
         # continually check for keypresses!
-        self.root.after(1000, self.move)    # Replace the 1000 with speeds from animal behavior classes.   
+        self.master.after(1000, self.move)    # Replace the 1000 with speeds from animal behavior classes.   
         
     #######################################################################
     #Handlers for keypresses
@@ -100,7 +103,7 @@ class Grid:
         # Creates all horizontal lines at intervals of 10
         for i in range(0, self.height*self.rectangle_size, self.rectangle_size):
             self.canvas.create_line([(0, i), (self.width*self.rectangle_size, i)])
-	
+    
     # Fills the grid given an underlying 2D array where cells are marked 1 if a snake 
     # is present, and 0 otherwise.    
     def fillGrid(self,matrix): #This is more for testing as it is uneconomical
@@ -109,7 +112,7 @@ class Grid:
                 if matrix[w][h] == 1:
                     self.placeMarker(w,h)
                 else:
-                    self.clearMarker(w,h)				
+                    self.clearMarker(w,h)               
 
     # Clears one marker from the grid
     # If you want to use this function you will need to ALSO add an update to the underlying matrix
@@ -117,7 +120,7 @@ class Grid:
         x1 = (x-1) * self.rectangle_size
         y1 = (y-1) * self.rectangle_size
         self.canvas.create_rectangle(x1,y1, x1+self.rectangle_size, y1+self.rectangle_size, fill="white")
-        self.canvas.pack()	
+        self.canvas.pack()  
          
     # Places one marker on the grid
     # If you want to use this function you will need to also update the underlying matrix    
