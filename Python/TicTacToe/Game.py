@@ -47,9 +47,89 @@ class TicTacToe:
         self.b8.grid(row=4,column=1)
         self.b9.grid(row=4,column=2)
     
-       
+   
+    def restart(self):
+        self.count = 0        
+        self.board=[['','','',],
+                    ['','','',],
+                    ['','','',]]
+        self.init_grid()
+        self.l1 = self.p1_label
+
     def check_winner(self):
-        pass #TODO
+        print(self.board)
+        if self.count==9:
+            messagebox.showinfo("TIE","P1 and P2 tied!")
+            self.restart()
+
+        # rows check
+        if self.board[0][0]==self.board[0][1]==self.board[0][2]=="X":
+            messagebox.showinfo("Won","P1 has won!")
+            won = True
+            
+        if self.board[1][0]==self.board[1][1]==self.board[1][2]=="X":
+            messagebox.showinfo("Won","P1 has won!")
+            won = True
+
+        if self.board[2][0]==self.board[2][1]==self.board[1][2]=="X":
+            messagebox.showinfo("Won","P1 has won!")
+            won = True
+
+        if self.board[0][0]==self.board[0][1]==self.board[0][2]=="O":
+            messagebox.showinfo("Won","P2 has won!")
+            won = True
+            
+        if self.board[1][0]==self.board[1][1]==self.board[1][2]=="O":
+            messagebox.showinfo("Won","P2 has won!")
+            won = True
+
+        if self.board[2][0]==self.board[2][1]==self.board[1][2]=="O":
+            messagebox.showinfo("Won","P2 has won!")
+            won = True
+
+        # columns check
+        if self.board[0][1]==self.board[1][1]==self.board[2][1]=="X":
+            messagebox.showinfo("Won","P1 has won!")
+            won = True
+        if self.board[0][2]==self.board[1][2]==self.board[2][2]=="X":
+            messagebox.showinfo("Won","P1 has won!")
+            won = True
+        if self.board[0][0]==self.board[1][0]==self.board[2][0]=="X":
+            messagebox.showinfo("Won","P1 has won!")
+            won = True
+
+        if self.board[0][1]==self.board[1][1]==self.board[2][1]=="O":
+            messagebox.showinfo("Won","P2 has won!")
+            won = True
+        if self.board[0][2]==self.board[1][2]==self.board[2][2]=="O":
+            messagebox.showinfo("Won","P2 has won!")
+            won = True
+        if self.board[0][0]==self.board[1][0]==self.board[2][0]=="O":
+            messagebox.showinfo("Won","P2 has won!")
+            won = True
+        
+
+        if self.board[0][0]==self.board[1][1]==self.board[2][2]=="X":
+            messagebox.showinfo("Won","P1 has won!")
+            won = True
+        if self.board[0][2]==self.board[1][1]==self.board[2][0]=="X":
+            messagebox.showinfo("Won","P1 has won!")
+            won = True
+        
+        if self.board[0][0]==self.board[1][1]==self.board[2][2]=="O":
+            messagebox.showinfo("Won","P2 has won!")
+            won = True
+        if self.board[0][2]==self.board[1][1]==self.board[2][0]=="O":
+            messagebox.showinfo("Won","P2 has won!")
+            won = True
+        if won: self.restart()
+       
+                
+        
+        # print(row_0)
+        # if self.board[0][0]==self.board[0][1]==self.board[0][2]=="X":
+            
+        
     
     #Changes the value of the button
     def pressed_button(self, button,row,col):
