@@ -8,12 +8,12 @@ class Grid:
         self.keypressed=None
         self.animalType = None
         self.master.title("Lines")
-        self.height = 36 
-        self.width = 24 
+        self.height = 12 
+        self.width = 12
         self.rectangle_size = 15
         self.canvas = tk.Canvas(width=self.width*self.rectangle_size, 
             height=(self.height*self.rectangle_size))
-        self.drawGrid()
+        # self.drawGrid()
         
         # Initialize buttons in a special button frame at bottom of screen
         self.button_frame = tk.Frame(self.master)
@@ -94,16 +94,7 @@ class Grid:
         self.matrix[self.animalType.getX()][self.animalType.getY()] = 1
         self.fillGrid(self.matrix) 
         
-    # Draws the grid
-    def drawGrid(self):
-        # Creates all vertical lines at intervals of rectangle_size
-        for i in range(0, self.width*self.rectangle_size, self.rectangle_size):
-            self.canvas.create_line([(i, 0), (i, self.height*self.rectangle_size)])
-
-        # Creates all horizontal lines at intervals of 10
-        for i in range(0, self.height*self.rectangle_size, self.rectangle_size):
-            self.canvas.create_line([(0, i), (self.width*self.rectangle_size, i)])
-    
+   
     # Fills the grid given an underlying 2D array where cells are marked 1 if a snake 
     # is present, and 0 otherwise.    
     def fillGrid(self,matrix): #This is more for testing as it is uneconomical
@@ -117,17 +108,18 @@ class Grid:
     # Clears one marker from the grid
     # If you want to use this function you will need to ALSO add an update to the underlying matrix
     def clearMarker(self,x,y):
-        x1 = (x-1) * self.rectangle_size
-        y1 = (y-1) * self.rectangle_size
-        self.canvas.create_rectangle(x1,y1, x1+self.rectangle_size, y1+self.rectangle_size, fill="white")
+        x1 = (x) * self.rectangle_size
+        y1 = (y) * self.rectangle_size
+        print([x,y],x1,y1, x1+self.rectangle_size, y1+self.rectangle_size)
+        self.canvas.create_rectangle(x1+1,y1+1, x1+self.rectangle_size, y1+self.rectangle_size, fill="white")
         self.canvas.pack()  
          
     # Places one marker on the grid
     # If you want to use this function you will need to also update the underlying matrix    
     def placeMarker(self,x,y):
-        x1 = (x-1) * self.rectangle_size
-        y1 = (y-1) * self.rectangle_size
-        self.canvas.create_rectangle(x1,y1, x1+self.rectangle_size, y1+self.rectangle_size, fill=self.animalType.getColor()) #"blue")
+        x1 = (x) * self.rectangle_size 
+        y1 = (y) * self.rectangle_size 
+        self.canvas.create_rectangle(x1+1,y1+1, x1+self.rectangle_size, y1+self.rectangle_size, fill=self.animalType.getColor())
         self.canvas.pack()
 
 def main(): #run mainloop 
