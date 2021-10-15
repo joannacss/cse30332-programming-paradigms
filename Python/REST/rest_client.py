@@ -14,9 +14,6 @@ def parse_breaches(breaches):
 
 def main():
 	response = requests.get(URL)
-	for attr in dir(response):
-		if not str(attr).startswith("__"): print(attr)
-
 	parse_breaches(response.json())
 	
 
