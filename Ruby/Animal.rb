@@ -29,8 +29,8 @@ end
 # %script being run
 if __FILE__ == $0 
     s = Horse.new "CJ" 
-    fail unless s.speak == "CJ says neigh" 
+    puts s.speak # "CJ says neigh" 
     c = Cow.new("Bessie") 
-    fail unless c.speak == "Bessie says moooo" 
-    fail unless Sheep.new("Little Lamb").speak == "Little Lamb says baaaa" 
+    puts c.speak # "Bessie says moooo" 
+    puts Sheep.new("Little Lamb").speak # "Little Lamb says baaaa" 
 end 
