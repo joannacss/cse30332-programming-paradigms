@@ -4,17 +4,11 @@ class Circle
         @y = y 
         @r = r 
     end 
-	
-	# Getter
-	def getRadius()
-	    @r
-	end
-	
-	# Setter
-	def setRadius(new_radius)
-	    @r = new_radius
-	end
-
+    
+    # accessors  
+    attr_reader :r # what happens if we comment this line?
+    attr_writer :r # what happens if we comment this line?
+    
     def center() 
         [@x, @y] 
     end 
@@ -29,7 +23,9 @@ class Circle
 end 
 
 c = Circle.new(5, 4, 10) 
-c.setRadius(4)
-puts c.getRadius()
+
+# accessing private members
+c.r = 4     # write 
+puts c.r    # read
 
  
