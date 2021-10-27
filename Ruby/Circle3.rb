@@ -9,8 +9,6 @@ class Circle
     attr_reader :r
 	attr_writer :r
 	
-	
-
     def center() 
         [@x, @y] 
     end 
@@ -25,12 +23,8 @@ class Circle
 end 
 
 c = Circle.new(5, 4, 10) 
-fail unless c.center == [5, 4] 
-fail unless c.area == 100 * Math::PI 
- 
-# to_s is automatically called when in string context 
-fail unless "#{c}" == "Circle at (5, 4) with radius 10"
 
+# accessing private members
 c.r = 4
 puts c.r
 
