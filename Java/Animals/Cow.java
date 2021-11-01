@@ -3,7 +3,8 @@ class Cow extends Animal {
 		super(name);
 	}
 	
-	@Override String sound() {
+	@Override 
+	protected String sound() {
 		return "moooo";
 	}
 }

@@ -1,6 +1,5 @@
 public class AnimalsApp {
 	public static void main(String[] args) {
-		System.out.println("HERE");
 		Animal h = new Horse("CJ");
 		System.out.println(h.speak());// "CJ says neigh"
 		Animal c = new Cow("Bessie");
@@ -8,5 +7,6 @@ public class AnimalsApp {
 		Animal s = new Sheep("Little Lamb");
 		System.out.println(s.speak());// "Little Lamb says baaaa"
 		// String sound = s.sound(); -> does this work ?
+		// Animal a = new Animal("My pet"); -> does this work?
 	}
 }
