@@ -1,3 +1,4 @@
+package animals;
 public class AnimalsApp {
 	public static void main(String[] args) {
 		Animal h = new Horse("CJ");
