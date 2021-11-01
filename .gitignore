@@ -10,6 +10,9 @@
 ehthumbs.db
 Thumbs.db
 
+# Java bytecode
+*.class
+
 # Python generated files
 *.pyc
 
@@ -98,4 +101,5 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 # Ignores Icon? files that get created on Mac OS
 Icon
-Icon
+Icon
+
