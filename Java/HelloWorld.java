@@ -1,1 +1,6 @@
-// To be DEMO-ed LIVE
+// DEMO-ed LIVE in Lecture
+public class Example{
+	public static void main(String [] args){
+		System.out.println("Hello World");
+	}
+}
