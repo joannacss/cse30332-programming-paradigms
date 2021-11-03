@@ -14,9 +14,9 @@ public class CollectionsExample{
         
         // DEMO: iterating over the collections
 
+
+
         // DEMO: using an array of Students and TAs
         // WAIT? we cannot import classes from the default package!!!
-
-
     }
 }

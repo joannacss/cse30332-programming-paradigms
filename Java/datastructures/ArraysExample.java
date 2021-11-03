@@ -16,7 +16,6 @@ public class ArraysExample{
         // DEMO: iterating over an array (forr)
 
     }
-
-
+    
 
 }

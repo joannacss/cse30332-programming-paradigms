@@ -1,13 +1,19 @@
 package datastructures;
-// DEMO: import statement for java.util.
-
+// DEMO: import statement
 
 public class CollectionsExample2{
 
     public static void main(String [] args){
-        // DEMO: using an array of Students and TAs
-        // WAIT? we cannot import classes from the default package!!!
+        // DEMO: playing around with primitive wrappers
 
+        // DEMO: list of primitives (ex: int)
+
+        // DEMO: list of floats
+
+        // DEMO: set of ints
+
+        // DEMO: map of <id: string>
+        
 
     }
 }
