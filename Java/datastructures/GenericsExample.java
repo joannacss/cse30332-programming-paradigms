@@ -1,3 +1,6 @@
+package datastructures;
+// just like templates in C++!
+// QUESTION: have you seen C++ templates in data structures?!
 public class GenericsExample<T>{
 	private T obj;
 
