@@ -1,3 +1,4 @@
+package shapes;
 public class Rectangle extends OrthogonalShape{
 	
 	public Rectangle(double b, double h){

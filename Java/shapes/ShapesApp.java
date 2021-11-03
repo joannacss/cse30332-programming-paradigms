@@ -1,3 +1,4 @@
+package shapes;
 public class ShapesApp {
 	public static void main(String[] args) {
 		Shape r = new Rectangle(2,3);

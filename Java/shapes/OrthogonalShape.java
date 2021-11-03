@@ -1,4 +1,5 @@
-public abstract class OrthogonalShape implements Shape{
+package shapes;
+public class OrthogonalShape implements Shape{
 	protected double base;
 	protected double height;
 
