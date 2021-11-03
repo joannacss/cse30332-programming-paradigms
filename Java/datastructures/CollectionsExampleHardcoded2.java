@@ -2,11 +2,12 @@ package datastructures;
 
 
 import java.util.HashSet;
+import java.util.TreeSet;
 
 public class CollectionsExampleHardcoded2{
 
 	public static void main(String [] args){
-		HashSet<String> set = new HashSet<>();
+		Set<String> set = new TreeSet<>();
 		set.add("A");
 		set.add("X");
 		set.add("Q");

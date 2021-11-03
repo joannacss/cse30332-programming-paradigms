@@ -1,4 +1,5 @@
 package animals;
+
 public abstract class Animal {
 	private String name;
 	public Animal(String name) {
@@ -8,4 +9,7 @@ public abstract class Animal {
 		return name + " says " + sound();
 	}
 	protected abstract String sound();
+	public static void main(String[] args){
+		System.out.println("Hello");
+	}
 }

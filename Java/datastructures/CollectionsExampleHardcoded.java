@@ -9,7 +9,7 @@ public class CollectionsExampleHardcoded{
 		// DEMO: hardcoding static type vs programming to an interface
 		// why is it important?
 		// LinkedList<String> cars = new LinkedList<>();
-		ArrayList<String> cars = new ArrayList<>();
+		List<String> cars = new LinkedList<>();
 		cars.add("Camry");
 		cars.add("BMW");
 		cars.add("Mazda");
