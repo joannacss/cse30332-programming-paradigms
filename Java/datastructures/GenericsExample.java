@@ -5,15 +5,18 @@ public class GenericsExample<T>{
 		this.obj = obj;
 	}
 
-	public static void main(String [] args){
-		// DEMO: creating an instance of a class
-		GenericsExample<String> set = new HashSet<>();
-		
-		
+	public T getObject(){
+		return this.obj; // or simply: obj
+	}
 
-		// DEMO: how can we make this print in order?
-		// is there a way to do so with minimal changes to this code?
-		for(String str: set)
-			System.out.println(str);
+	public void setObject(T obj){
+		this.obj = obj; // here you cannot omit this
+	}
+
+	public static void main(String [] args){
+		// DEMO: creating an instance of a class for multiple types
+			
+		// WHY is that we use generics and not simply declare obj as an Object?
+		// aren't all classes a subclass of java.lang.Object?
 	}
 }
