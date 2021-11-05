@@ -22,7 +22,7 @@ class Dog extends Pet {
 
 public class LowerBoundExample {
 	public static void main(String[] args){
-		// Using <? Super Sheep> we can add cat to sets of Cat, Pet, or Objects 
+		// Using <? Super Cat> we can add cat to sets of Cat, Pet, or Objects 
 		// i.e., any set that is a supertype of Pet.
 		Set<? super Cat> s1 = new HashSet<Object>();
 		Set<? super Cat> s2 = new HashSet<Pet>();
