@@ -10,13 +10,13 @@ abstract class Pet{
 	public abstract void speak();
 }
 
-class Dog extends Pet {
-	Dog(String name){
+class Cat extends Pet {
+	Cat(String name){
 		super(name);
 	}
 	@Override
 	public void speak() {
-		System.out.println("Woof");
+		System.out.println("meow");
 	}
 }
 

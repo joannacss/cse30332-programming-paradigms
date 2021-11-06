@@ -2,7 +2,8 @@ package datastructures;
 // DEMO: import statement
 import java.util.List;
 import java.util.ArrayList;
-
+import java.util.Map;
+import java.util.HashMap;
 
 public class CollectionsExample2{
 
@@ -15,11 +16,10 @@ public class CollectionsExample2{
 		myList.add(a);
 
         // DEMO: list of floats
-
-        // DEMO: set of ints
+		List<Float> myList2 = new ArrayList<>();
 
         // DEMO: map of <id: string>
-        
+        Map<Integer, String> myList3 = new HashMap<>();
 
     }
 }
