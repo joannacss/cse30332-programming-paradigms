@@ -1,7 +1,7 @@
 package multithreading;
 
 // Example from: https://www.callicoder.com/java-multithreading-thread-and-runnable-tutorial/
-public class ThreadExample1 extends Thread {
+public class ThreadExample extends Thread {
 
     // run() method contains the code that is executed by the thread.
     @Override
