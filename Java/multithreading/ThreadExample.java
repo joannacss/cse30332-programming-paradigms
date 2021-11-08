@@ -13,7 +13,7 @@ public class ThreadExample extends Thread {
         System.out.println("Inside : " + Thread.currentThread().getName());
 
         System.out.println("Creating thread...");
-        Thread thread = new ThreadExample1();
+        Thread thread = new ThreadExample();
 
         System.out.println("Starting thread...");
         thread.start();
