@@ -14,13 +14,13 @@ class NumberGeneratorTask implements Runnable {
 
 }
 
-public class MainSynchronizedDemo {
+public class SynchronizedDemo {
     public static void main(String[] args) {
         // construct the shared object
 
 
         // create two tasks to write to the shared SimpleArray
-        
+
 
         // execute the tasks with an ExecutorService
 

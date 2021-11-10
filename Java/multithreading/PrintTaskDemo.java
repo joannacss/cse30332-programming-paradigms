@@ -1,7 +1,7 @@
 package multithreading;
 
 //DEMO: multiple tasks
-public class PrintTask implements Runnable {
+public class PrintTaskDemo implements Runnable {
 
 
 }
