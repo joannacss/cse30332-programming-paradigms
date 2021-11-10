@@ -1,10 +1,12 @@
 package multithreading;
+
+import java.util.concurrent.Executors;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ExecutorService;
 
 public class ProducerConsumer {
     private BlockingQueue<Integer> bq = new LinkedBlockingQueue<>(10);
-    private int capacity = 2;
 
     public void produce() throws InterruptedException {
         int value = 0;
@@ -31,7 +33,7 @@ class MainProducerConsumer {
         final ProducerConsumer pc = new ProducerConsumer();
 
         // Create producer thread
-        Thread t1 = new Thread(new Runnable() {
+        Runnable r1 = new Runnable() {
             @Override
             public void run() {
                 try {
@@ -40,10 +42,10 @@ class MainProducerConsumer {
                     e.printStackTrace();
                 }
             }
-        });
+        };
 
         // Create consumer thread
-        Thread t2 = new Thread(new Runnable() {
+        Runnable r2 = new Runnable() {
             @Override
             public void run() {
                 try {
@@ -52,12 +54,12 @@ class MainProducerConsumer {
                     e.printStackTrace();
                 }
             }
-        });
+        };
 
         // execute the tasks with an ExecutorService
         ExecutorService executor = Executors.newCachedThreadPool();
-        executor.execute(t1);
-        executor.execute(t2);
+        executor.execute(r1);
+        executor.execute(r2);
         executor.shutdown();
     }
 }
