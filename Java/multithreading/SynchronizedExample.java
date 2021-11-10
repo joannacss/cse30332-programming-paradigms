@@ -9,7 +9,7 @@ class ArrayBuffer {
 
     public ArrayBuffer() {
         this.buffer = new int[10];
-        this.currentSize = 0; // un-needed!
+        this.currentSize = 0; // un-needed! WHY?!
     }
 
     public synchronized void add(int val) {
@@ -23,13 +23,13 @@ class ArrayBuffer {
 class NumberGeneratorTask implements Runnable {
     private ArrayBuffer buffer; // object that is shared across threads!
 
-
     public NumberGeneratorTask(ArrayBuffer buffer) {
         this.buffer = buffer;
     }
 
     public void run() {
-        try { // put thread to sleep for sleepTime amount of time
+        try {
+            // put thread to sleep for 0-5 seconds
             int sleepTime = new Random().nextInt(5000);
             System.out.printf("%s going to sleep for %d milliseconds.\n", Thread.currentThread().getName(), sleepTime);
             Thread.sleep(sleepTime); // put thread to sleep
@@ -39,7 +39,7 @@ class NumberGeneratorTask implements Runnable {
     }
 }
 
-public class ConsumerProducer {
+public class MainSynchronizedExample {
     private static ArrayBuffer sharedBuffer;
 
     public static void main(String[] args) {
