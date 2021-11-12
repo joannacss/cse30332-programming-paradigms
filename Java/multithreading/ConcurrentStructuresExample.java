@@ -2,29 +2,18 @@ package multithreading;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.atomic.AtomicIntegerArray;
 import java.util.Random;
-class ArrayBuffer {
-    private int buffer[];
-    private int currentSize;
 
-    public ArrayBuffer() {
-        this.buffer = new int[10];
-        this.currentSize = 0; // un-needed! WHY?!
-    }
-
-    public synchronized void add(int val) {
-        this.buffer[currentSize] = val;
-        this.currentSize = (currentSize + 1) % buffer.length;
-        System.out.printf("%s adding %d to position %d\n", Thread.currentThread().getName(), val, currentSize);
-    }
-
-}
-
-class NumberGeneratorTask implements Runnable {
-    private ArrayBuffer buffer; // object that is shared across threads!
-	private static Random generator = new Random();
-    // constructor receives a reference to the buffer
-	public NumberGeneratorTask(ArrayBuffer buffer) {
+class NumberGeneratorWithList implements Runnable {
+    private AtomicIntegerArray buffer; // object that is shared across threads!
+	private static Random generator;
+    
+	static {
+		generator = new Random();
+	}
+	// constructor receives a reference to the buffer
+	public NumberGeneratorWithList(AtomicIntegerArray buffer) {
         this.buffer = buffer;
     }
 
@@ -34,7 +23,7 @@ class NumberGeneratorTask implements Runnable {
 			int randomValue = generator.nextInt(100) + 1;
             
 			// add to the buffer
-			this.buffer.add(randomValue);
+			this.buffer.set(randomValue);
 
 			// put thread to sleep for 0-5 seconds
             int sleepTime = generator.nextInt(5000);
@@ -48,16 +37,17 @@ class NumberGeneratorTask implements Runnable {
     }
 }
 
-class SynchronizedExample {
-    private static ArrayBuffer sharedBuffer;
+class MainSynchronizedExample {
+    
 
     public static void main(String[] args) {
         // construct the shared object
-        ArrayBuffer sharedBuffer = new ArrayBuffer();
+		// "An int array in which elements may be updated atomically."
+       	AtomicIntegerArray sharedBuffer = new AtomicIntegerArray(10);
 
         // create two tasks to write to the shared SimpleArray
-        NumberGeneratorTask t1 = new NumberGeneratorTask(sharedBuffer);
-        NumberGeneratorTask t2 = new NumberGeneratorTask(sharedBuffer);
+        NumberGeneratorWithList t1 = new NumberGeneratorWithList(sharedBuffer);
+        NumberGeneratorWithList t2 = new NumberGeneratorWithList(sharedBuffer);
 
         // execute the tasks with an ExecutorService
         ExecutorService executor = Executors.newCachedThreadPool();
