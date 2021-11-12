@@ -5,61 +5,64 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ExecutorService;
 
-public class ProducerConsumer {
-    private BlockingQueue<Integer> bq = new LinkedBlockingQueue<>(10);
 
-    public void produce() throws InterruptedException {
-        int value = 0;
-        while (true) {
-            bq.put(value++);
-            System.out.println("Producer produced-" + value + " Current size " + bq.size());
-            Thread.sleep(100);
-        }
+class Producer implements Runnable {
+    
+	private BlockingQueue<Integer> queue;
+
+    public Producer(BlockingQueue<Integer> queue) {
+        this.queue = queue;
     }
 
-    public void consume() throws InterruptedException {
-        while (true) {
-            int val = bq.take();
-            System.out.println("Consumer consumed-" + val);
-            Thread.sleep(500);
-        }
+    public void run() {
+		try{
+			// no synchronization needed will be needed
+			int value = 0;
+			while (true) {
+				queue.put(value);
+				System.out.printf("Produced=%d\n", value);
+				value++;
+				Thread.sleep(200);			
+			}
+		}catch(InterruptedException ex){
+			System.err.println(ex.getMessage());
+		}
     }
 }
 
-class MainProducerConsumer {
+class Consumer implements Runnable{
+	private BlockingQueue<Integer> queue;
+
+    public Consumer(BlockingQueue<Integer> queue) {
+        this.queue = queue;
+    }
+
+    public void run() {
+		try{
+			while (true) {
+				int val = queue.take();
+				System.out.printf("Consumer %s consumed-%d. Current size = %d\n", Thread.currentThread().getName(), val, queue.size());
+				Thread.sleep(1000);
+			}
+		}catch(InterruptedException ex){
+			System.err.println(ex.getMessage());
+		}
+    }
+}
+
+public class ProducerConsumer {
     public static void main(String[] args) throws InterruptedException {
-        // Object of a class that has both produce()
-        // and consume() methods
-        final ProducerConsumer pc = new ProducerConsumer();
-
-        // Create producer thread
-        Runnable r1 = new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    pc.produce();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-
-        // Create consumer thread
-        Runnable r2 = new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    pc.consume();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-
+        // shared data structure (blocking queue. size = 10)
+		BlockingQueue<Integer> bq = new LinkedBlockingQueue<>(10);
+		// producer
+		Producer p = new Producer(bq);
+		// consumers
+		Consumer c1 = new Consumer(bq);
+		Consumer c2 = new Consumer(bq);
         // execute the tasks with an ExecutorService
         ExecutorService executor = Executors.newCachedThreadPool();
-        executor.execute(r1);
-        executor.execute(r2);
-        executor.shutdown();
+        executor.execute(p);
+		executor.execute(c1);
+        executor.execute(c2);
     }
 }
