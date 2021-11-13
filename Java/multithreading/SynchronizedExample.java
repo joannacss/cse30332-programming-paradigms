@@ -22,7 +22,7 @@ class ArrayBuffer {
 
 class NumberGeneratorTask implements Runnable {
     private ArrayBuffer buffer; // object that is shared across threads!
-	private static Random generator = new Random();
+	private static Random generator = new Random(); // 
     // constructor receives a reference to the buffer
 	public NumberGeneratorTask(ArrayBuffer buffer) {
         this.buffer = buffer;
