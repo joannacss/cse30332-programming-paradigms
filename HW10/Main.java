@@ -16,11 +16,16 @@ class FileParserTask implements Runnable {
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        // shared data structures
+        /*
+            namesCount and occupationsCount are shared objects.
+            Notice: the static type for the key is a String, and the value is a Number in both maps.
+            Depending on the class you choose to use, you might get a race condition!
+            Refer to the Homework's HINTs section
+         */
         // key = First Name, value = total count
-        Map<String, Integer> namesCount = /* TODO: what is the right type here? */;
+        Map<String, /* TODO Static Type for the Value */> namesCount = /* TODO: what is the right type here? */;
         // key = Ocupation, value = total count
-        Map<String, Integer> occupationsCount = /* TODO: what is the right type here? */;
+        Map<String, /* TODO Static Type for the Value */> occupationsCount = /* TODO: what is the right type here? */;
 
         // execute the tasks with an ExecutorService
         ExecutorService executor = Executors.newCachedThreadPool();
@@ -35,7 +40,7 @@ public class Main {
         // OR if a time out of 10 minutes has happened
         executor.awaitTermination(10, TimeUnit.MINUTES);
 
-        // prints the computed metrics
+        // prints the computed metrics (DO NOT CHANGE THE LINES BELOW)
         System.out.println("First Name\tTotal");
         namesCount.forEach((name, count) -> System.out.println(name + "\t" + count));
 
