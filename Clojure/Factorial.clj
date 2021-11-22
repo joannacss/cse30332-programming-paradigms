@@ -7,8 +7,3 @@
 		) ;end loop
 ) ; end of function
 
-
-
-(def n (Integer/parseInt (first *command-line-args*)))
-(def result (factorial n))
-(printf "The factorial of %d is %d" n result) 
